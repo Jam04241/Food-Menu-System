@@ -30,7 +30,7 @@ public class Project1st extends javax.swing.JFrame {
 
     public void addTable(String Name, Double Price) {
 
-        String Quantity = JOptionPane.showInputDialog(null, "Order:");
+        String Quantity = JOptionPane.showInputDialog(null, "Order:","1");
 
         Double tqty = Double.valueOf(Quantity);
         Double prc = Price * tqty;
@@ -62,11 +62,15 @@ public class Project1st extends javax.swing.JFrame {
            //We put this decimalformat to avoid displaying the repeating number of 0
         DecimalFormat df = new DecimalFormat("000.00");
         String d1 = df.format(total);
-
-        subtotal.setText(d1); // Sub Total
-
+        // Sub Total
+        subtotal.setText(d1);
+        
+        //Balance(Change of Input Cash) 
+        balnce.setText(d1);
+        
         //Total
         fulltotal.setText(String.valueOf(total));
+        fulltotal.setText(d1);
 
     }
     //a method for making a receipt at JTextPane
@@ -477,7 +481,7 @@ public class Project1st extends javax.swing.JFrame {
 
         subtotal.setFont(new java.awt.Font("Impact", 1, 36)); // NOI18N
         subtotal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        subtotal.setText("00");
+        subtotal.setText("000.00");
         subtotal.setToolTipText("");
         subtotal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -489,7 +493,7 @@ public class Project1st extends javax.swing.JFrame {
 
         fulltotal.setFont(new java.awt.Font("Impact", 1, 36)); // NOI18N
         fulltotal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        fulltotal.setText("00");
+        fulltotal.setText("000.00");
         fulltotal.setToolTipText("");
         fulltotal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -545,26 +549,29 @@ public class Project1st extends javax.swing.JFrame {
                                 .addGap(29, 29, 29)
                                 .addComponent(balnce, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                        .addComponent(pay, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(17, 17, 17)))
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addGap(12, 12, 12)
-                                        .addComponent(print, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(24, 24, 24))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(fulltotal, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(subtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jLabel7))
+                                .addComponent(jLabel7)
+                                .addGap(75, 75, 75)
+                                .addComponent(fulltotal, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(amt, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                .addComponent(pay, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17)))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(print, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(30, Short.MAX_VALUE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(subtotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
